@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Events - Student Event Hub</title>
+    <meta name="description" content="Browse and discover upcoming student events from schools across the community.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Student Event Hub</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html" class="active">Browse Events</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2 class="section-heading">Browse Events</h2>
+        </div>
+    </section>
+
+    <!-- Filters -->
+    <section class="filters-section">
+        <div class="container">
+            <div class="filters-grid" id="filtersGrid">
+                <div class="search-wrapper">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                    <input type="text" class="form-input" id="searchInput" placeholder="Search events...">
+                </div>
+                <select class="form-select" id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Academic">Academic</option>
+                    <option value="Cultural">Cultural</option>
+                    <option value="Leadership">Leadership</option>
+                </select>
+                <select class="form-select" id="sortBy">
+                    <option value="date-asc">Date (Soonest)</option>
+                    <option value="date-desc">Date (Latest)</option>
+                    <option value="school">School</option>
+                    <option value="popularity">Popularity</option>
+                </select>
+                <select class="form-select" id="schoolFilter">
+                    <option value="all">All Schools</option>
+                </select>
+            </div>
+        </div>
+    </section>
+
+    <!-- Events Grid -->
+    <section class="section section-gray">
+        <div class="container">
+            <p class="result-count" id="resultCount"></p>
+            <div class="events-grid three-col" id="eventsGrid">
+                <!-- Events will be loaded here -->
+            </div>
+            <div class="empty-state" id="emptyState" style="display: none;">
+                <div class="empty-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <h3 class="empty-title">No events found</h3>
+                <p class="empty-text">Try adjusting your search or filter criteria</p>
+                <button class="btn btn-outline-dark" onclick="clearFilters()">Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="events.html">Browse Events</a>
+                <a href="register.html">Register</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <div class="footer-divider"></div>
+            <p class="footer-tagline">Connecting communities through shared experiences.</p>
+            <p class="footer-copyright">&copy; 2026 Student Event Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/events.js"></script>
+</body>
+</html>

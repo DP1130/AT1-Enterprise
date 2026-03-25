@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Student Event Hub</title>
+    <meta name="description" content="Admin dashboard for managing events and registrations.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Student Event Hub</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Browse Events</a></li>
+                <li><a href="register.html">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="admin.html" class="active">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2 class="section-heading">Admin Dashboard</h2>
+        </div>
+    </section>
+
+    <!-- Dashboard Stats -->
+    <section class="section section-white">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                        <line x1="16" y1="2" x2="16" y2="6"></line>
+                        <line x1="8" y1="2" x2="8" y2="6"></line>
+                        <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                    <span class="stat-number" id="totalEvents">0</span>
+                    <span class="stat-label">Total Events</span>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                    </svg>
+                    <span class="stat-number" id="totalRegistrations">0</span>
+                    <span class="stat-label">Total Registrations</span>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                    </svg>
+                    <span class="stat-number" id="totalFeedback">0</span>
+                    <span class="stat-label">Feedback Received</span>
+                </div>
+                <div class="stat-card">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    <span class="stat-number" id="totalSchools">8</span>
+                    <span class="stat-label">Partner Schools</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Admin Content -->
+    <section class="section section-gray">
+        <div class="container">
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active" data-tab="events">Events</button>
+                <button class="tab" data-tab="registrations">Registrations</button>
+                <button class="tab" data-tab="feedback">Feedback</button>
+            </div>
+            
+            <!-- Events Tab -->
+            <div class="tab-content active" id="events-tab">
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h3 class="admin-card-title">All Events</h3>
+                    </div>
+                    <div class="admin-card-body">
+                        <div class="table-responsive">
+                            <table class="admin-table" id="eventsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Event Name</th>
+                                        <th>Host School</th>
+                                        <th>Date</th>
+                                        <th>Category</th>
+                                        <th>Registrations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Events will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Registrations Tab -->
+            <div class="tab-content" id="registrations-tab">
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h3 class="admin-card-title">All Registrations</h3>
+                    </div>
+                    <div class="admin-card-body">
+                        <div class="table-responsive">
+                            <table class="admin-table" id="registrationsTable">
+                                <thead>
+                                    <tr>
+                                        <th>Student Name</th>
+                                        <th>Email</th>
+                                        <th>School</th>
+                                        <th>Event</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Registrations will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="empty-state" id="registrationsEmpty" style="display: none;">
+                            <div class="empty-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                </svg>
+                            </div>
+                            <h3 class="empty-title">No registrations yet</h3>
+                            <p class="empty-text">Registrations will appear here once students start signing up.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Feedback Tab -->
+            <div class="tab-content" id="feedback-tab">
+                <div class="admin-card">
+                    <div class="admin-card-header">
+                        <h3 class="admin-card-title">All Feedback</h3>
+                    </div>
+                    <div class="admin-card-body">
+                        <div class="table-responsive">
+                            <table class="admin-table" id="feedbackTable">
+                                <thead>
+                                    <tr>
+                                        <th>Event</th>
+                                        <th>Rating</th>
+                                        <th>Comment</th>
+                                        <th>Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Feedback will be loaded here -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="empty-state" id="feedbackEmpty" style="display: none;">
+                            <div class="empty-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                                </svg>
+                            </div>
+                            <h3 class="empty-title">No feedback yet</h3>
+                            <p class="empty-text">Feedback will appear here once students start sharing their experiences.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="events.html">Browse Events</a>
+                <a href="register.html">Register</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <div class="footer-divider"></div>
+            <p class="footer-tagline">Connecting communities through shared experiences.</p>
+            <p class="footer-copyright">&copy; 2026 Student Event Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

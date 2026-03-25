@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Student Event Hub</title>
+    <meta name="description" content="Register for upcoming student events and join the community.">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                </svg>
+                <span>Student Event Hub</span>
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <span class="hamburger"></span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="events.html">Browse Events</a></li>
+                <li><a href="register.html" class="active">Register</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="admin.html">Admin Dashboard</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h2 class="section-heading">Register for an Event</h2>
+        </div>
+    </section>
+
+    <!-- Registration Form -->
+    <section class="section section-gray">
+        <div class="container" style="max-width: 500px;">
+            <div class="form-card">
+                <div class="form-header">
+                    <h3 class="form-title">Event Registration</h3>
+                    <p class="form-description">Fill in your details below to register for an event</p>
+                </div>
+                <div class="form-body">
+                    <!-- Success Message (hidden by default) -->
+                    <div class="success-message" id="successMessage" style="display: none;">
+                        <div class="success-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                            </svg>
+                        </div>
+                        <h3 class="success-title">You're registered!</h3>
+                        <p class="success-text">Check your email for confirmation. We look forward to seeing you at the event!</p>
+                        <button class="btn btn-primary" onclick="resetForm()">Register for Another Event</button>
+                    </div>
+                    
+                    <!-- Registration Form -->
+                    <form id="registrationForm">
+                        <div class="form-group">
+                            <label class="form-label" for="studentName">Student Name</label>
+                            <input type="text" class="form-input" id="studentName" placeholder="Enter your full name">
+                            <p class="form-error" id="studentNameError"></p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="email">Email Address</label>
+                            <input type="email" class="form-input" id="email" placeholder="your.email@school.edu">
+                            <p class="form-error" id="emailError"></p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="school">School Name</label>
+                            <select class="form-select" id="school">
+                                <option value="">Select your school</option>
+                            </select>
+                            <p class="form-error" id="schoolError"></p>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="event">Event</label>
+                            <select class="form-select" id="event">
+                                <option value="">Select an event</option>
+                            </select>
+                            <p class="form-error" id="eventError"></p>
+                        </div>
+                        
+                        <div class="alert alert-error" id="submitError" style="display: none;"></div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
+                            Register
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="notice-box">
+                Your data is collected securely and used only for event management purposes in accordance with our privacy policy.
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <nav class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="events.html">Browse Events</a>
+                <a href="register.html">Register</a>
+                <a href="feedback.html">Feedback</a>
+                <a href="privacy.html">Privacy Policy</a>
+            </nav>
+            <div class="footer-divider"></div>
+            <p class="footer-tagline">Connecting communities through shared experiences.</p>
+            <p class="footer-copyright">&copy; 2026 Student Event Hub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/register.js"></script>
+</body>
+</html>
