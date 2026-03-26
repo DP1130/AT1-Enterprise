@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Details - Student Event Hub</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">E</div>
+      <h1>Student<span>EventHub</span></h1>
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Browse Events</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="admin.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
+
+  <!-- Event Detail Content -->
+  <div class="event-detail" id="eventDetail">
+    <!-- Event Header -->
+    <div class="event-header" id="eventHeader">
+      <span class="card-category" id="eventCategory">Loading...</span>
+      <h1 id="eventName">Loading Event...</h1>
+      <div class="event-header-meta">
+        <span id="eventDate">&#128197; Loading...</span>
+        <span id="eventLocation">&#128205; Loading...</span>
+        <span id="eventSchool">&#127979; Loading...</span>
+      </div>
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-box fade-in">
+      <h3>Event Starts In</h3>
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="countdown-item">
+          <span class="number" id="countdownDays">00</span>
+          <span class="label">Days</span>
+        </div>
+        <div class="countdown-item">
+          <span class="number" id="countdownHours">00</span>
+          <span class="label">Hours</span>
+        </div>
+        <div class="countdown-item">
+          <span class="number" id="countdownMinutes">00</span>
+          <span class="label">Minutes</span>
+        </div>
+        <div class="countdown-item">
+          <span class="number" id="countdownSeconds">00</span>
+          <span class="label">Seconds</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Capacity Bar -->
+    <div class="capacity-box fade-in">
+      <h3>Registration Capacity</h3>
+      <div class="progress-bar">
+        <div class="progress-fill" id="capacityBar"></div>
+      </div>
+      <p class="capacity-text" id="capacityText">Loading...</p>
+      <div class="text-center mt-3">
+        <a href="register.html" class="btn btn-cta" id="registerBtn">Register for This Event</a>
+      </div>
+    </div>
+
+    <!-- Event Description -->
+    <div class="event-content fade-in">
+      <h3>About This Event</h3>
+      <p id="eventDescription">Loading event description...</p>
+    </div>
+
+    <!-- Event Schedule -->
+    <div class="event-content fade-in">
+      <h3>Event Schedule</h3>
+      <ul class="schedule-list" id="eventSchedule">
+        <!-- Schedule items will be dynamically loaded -->
+      </ul>
+    </div>
+
+    <!-- Past Feedback -->
+    <div class="event-content fade-in">
+      <h3>What Students Say</h3>
+      <div class="feedback-list" id="eventFeedback">
+        <!-- Feedback will be dynamically loaded -->
+      </div>
+    </div>
+
+    <!-- Back Button -->
+    <div class="text-center mt-4">
+      <a href="events.html" class="btn btn-secondary" style="color: var(--navy); border-color: var(--navy);">Back to All Events</a>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Student Event Hub</h3>
+        <p>Connecting students across Sydney's top high schools through exciting interschool events.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="events.html">Browse Events</a>
+        <a href="register.html">Register</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: info@studenteventhub.edu.au</p>
+        <p>Phone: (02) 9000 0000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Student Event Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Initialize event detail page
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeData();
+      initNavigation();
+      initScrollAnimations();
+      loadEventDetail();
+    });
+  </script>
+</body>
+</html>

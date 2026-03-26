@@ -1,151 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feedback - Student Event Hub</title>
-    <meta name="description" content="Share your feedback about events and help us improve.">
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback - Student Event Hub</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
-                <span>Student Event Hub</span>
-            </a>
-            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
-                <span class="hamburger"></span>
-            </button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="events.html">Browse Events</a></li>
-                <li><a href="register.html">Register</a></li>
-                <li><a href="feedback.html" class="active">Feedback</a></li>
-                <li><a href="admin.html">Admin Dashboard</a></li>
-            </ul>
-        </div>
-    </nav>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo">
+      <div class="logo-icon">E</div>
+      <h1>Student<span>EventHub</span></h1>
+    </a>
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="events.html">Browse Events</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="admin.html">Admin Dashboard</a></li>
+    </ul>
+  </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h2 class="section-heading">Provide Feedback</h2>
-        </div>
-    </section>
+  <!-- Page Header -->
+  <section class="page-header">
+    <h1>Event Feedback</h1>
+    <p>Share your experience and help us improve future events.</p>
+  </section>
 
-    <!-- Feedback Section -->
-    <section class="section section-gray">
-        <div class="container" style="max-width: 1000px;">
-            <div class="two-col-grid">
-                <!-- Feedback Form -->
-                <div class="form-card">
-                    <div class="form-header">
-                        <h3 class="form-title">Share Your Experience</h3>
-                        <p class="form-description">Help us improve by sharing your feedback about recent events</p>
-                    </div>
-                    <div class="form-body">
-                        <!-- Success Message (hidden by default) -->
-                        <div class="success-message" id="successMessage" style="display: none;">
-                            <div class="success-icon">
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                                </svg>
-                            </div>
-                            <h3 class="success-title">Thank you!</h3>
-                            <p class="success-text">Your feedback has been submitted successfully.</p>
-                            <button class="btn btn-outline-dark" onclick="resetFeedbackForm()">Submit Another Feedback</button>
-                        </div>
-                        
-                        <!-- Feedback Form -->
-                        <form id="feedbackForm">
-                            <div class="form-group">
-                                <label class="form-label" for="eventName">Event Name</label>
-                                <input type="text" class="form-input" id="eventName" placeholder="e.g. Soccer Match">
-                                <p class="form-error" id="eventNameError"></p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label">Rating</label>
-                                <div class="star-rating" id="starRating">
-                                    <button type="button" data-rating="1" aria-label="Rate 1 star">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </button>
-                                    <button type="button" data-rating="2" aria-label="Rate 2 stars">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </button>
-                                    <button type="button" data-rating="3" aria-label="Rate 3 stars">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </button>
-                                    <button type="button" data-rating="4" aria-label="Rate 4 stars">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </button>
-                                    <button type="button" data-rating="5" aria-label="Rate 5 stars">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <p class="form-error" id="ratingError"></p>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label class="form-label" for="comment">Your Feedback</label>
-                                <textarea class="form-textarea" id="comment" placeholder="Tell us about your experience..."></textarea>
-                                <p class="form-error" id="commentError"></p>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary btn-block" id="submitBtn">
-                                Submit Feedback
-                            </button>
-                        </form>
-                    </div>
-                </div>
-                
-                <!-- Feedback List -->
-                <div>
-                    <h3 class="feedback-sidebar-title">What Students Are Saying</h3>
-                    <div class="feedback-list" id="feedbackList">
-                        <!-- Feedback items will be loaded here -->
-                    </div>
-                </div>
-            </div>
+  <!-- Feedback Form -->
+  <section class="section">
+    <div class="form-container fade-in">
+      <h2>Submit Your Feedback</h2>
+      <p class="subtitle">We value your opinion! Let us know how your event experience was.</p>
+      
+      <form id="feedbackForm">
+        <div class="form-group">
+          <label for="feedbackEvent">Event Name *</label>
+          <select id="feedbackEvent" name="eventName" required>
+            <option value="">Select an event</option>
+            <!-- Events will be dynamically loaded -->
+          </select>
+          <span class="error-message">Please select an event</span>
         </div>
-    </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <nav class="footer-nav">
-                <a href="index.html">Home</a>
-                <a href="events.html">Browse Events</a>
-                <a href="register.html">Register</a>
-                <a href="feedback.html">Feedback</a>
-                <a href="privacy.html">Privacy Policy</a>
-            </nav>
-            <div class="footer-divider"></div>
-            <p class="footer-tagline">Connecting communities through shared experiences.</p>
-            <p class="footer-copyright">&copy; 2026 Student Event Hub. All rights reserved.</p>
+        <div class="form-group">
+          <label>Your Rating *</label>
+          <div class="star-rating" id="starRating">
+            <span class="star" data-rating="1">&#9733;</span>
+            <span class="star" data-rating="2">&#9733;</span>
+            <span class="star" data-rating="3">&#9733;</span>
+            <span class="star" data-rating="4">&#9733;</span>
+            <span class="star" data-rating="5">&#9733;</span>
+          </div>
+          <input type="hidden" id="ratingValue" name="rating" value="0">
+          <span class="error-message" id="ratingError" style="display: none;">Please select a rating</span>
         </div>
-    </footer>
 
-    <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/feedback.js"></script>
+        <div class="form-group">
+          <label for="feedbackComment">Your Comments *</label>
+          <textarea id="feedbackComment" name="comment" placeholder="Tell us about your experience..." required></textarea>
+          <span class="error-message">Please enter your comments</span>
+        </div>
+
+        <button type="submit" class="btn btn-cta" style="width: 100%;">Submit Feedback</button>
+      </form>
+    </div>
+
+    <!-- Past Feedback -->
+    <div class="section-title mt-4">
+      <h2>Recent Feedback</h2>
+      <div class="gold-divider"></div>
+    </div>
+
+    <div class="feedback-list" id="feedbackList">
+      <!-- Feedback cards will be dynamically loaded -->
+    </div>
+
+    <div class="empty-state hidden" id="feedbackEmptyState">
+      <div class="empty-state-icon">&#128172;</div>
+      <h3>No Feedback Yet</h3>
+      <p>Be the first to share your experience!</p>
+    </div>
+  </section>
+
+  <!-- Success Overlay -->
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-content">
+      <div class="checkmark-circle">
+        <span class="checkmark">&#10003;</span>
+      </div>
+      <h2>Thank You!</h2>
+      <p>Your feedback has been submitted successfully.</p>
+      <button class="btn btn-primary" onclick="closeSuccessOverlay()">Continue</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Student Event Hub</h3>
+        <p>Connecting students across Sydney's top high schools through exciting interschool events.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Quick Links</h3>
+        <a href="index.html">Home</a>
+        <a href="events.html">Browse Events</a>
+        <a href="register.html">Register</a>
+        <a href="feedback.html">Feedback</a>
+      </div>
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <p>Email: info@studenteventhub.edu.au</p>
+        <p>Phone: (02) 9000 0000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Student Event Hub. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    // Initialize feedback page
+    document.addEventListener('DOMContentLoaded', function() {
+      initializeData();
+      initNavigation();
+      initScrollAnimations();
+      populateFeedbackForm();
+      initFeedbackForm();
+      renderFeedbackList();
+    });
+  </script>
 </body>
 </html>
